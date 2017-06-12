@@ -1,10 +1,12 @@
 #!/bin/sh -e
+NETWORK="ezuce"
 FLAGS=${FLAGS:-"-td"}
-NETWORK=${NETWORK:-"ezuce"}
 MONGO_NAME=${NAME:-"mongodb.$NETWORK"}
 PG_NAME=${NAME:-"postgres.$NETWORK"}
 CONFIG_NAME=${NAME:-"sipxconfig.$NETWORK"}
 NGINX_NAME=${NAME:-"nginx.$NETWORK"}
+
+docker network create $NETWORK
 
 docker run $FLAGS \
 	--name mongo \
